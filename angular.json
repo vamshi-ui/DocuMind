@@ -19,7 +19,7 @@
           "options": {
             "outputPath": "dist/docu-mind",
             "index": "src/index.html",
-            "baseHref": "/documind/",
+            "baseHref": "/DocuMind/",
             "browser": "src/main.ts",
             "polyfills": [
               "zone.js"
