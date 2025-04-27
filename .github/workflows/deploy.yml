@@ -28,5 +28,7 @@ jobs:
       - name: Deploy to GitHub Pages
         uses: JamesIves/github-pages-deploy-action@v4
         with:
-          folder: dist/docu-mind/browser  # Adjust path based on your Angular output directory
+          folder: dist/docu-mind/browser  # Verify this path
           branch: gh-pages
+          clean: true
+          force: true
