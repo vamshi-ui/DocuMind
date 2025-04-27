@@ -19,6 +19,7 @@
           "options": {
             "outputPath": "dist/docu-mind",
             "index": "src/index.html",
+            "baseHref": "/documind/",
             "browser": "src/main.ts",
             "polyfills": [
               "zone.js"
@@ -98,5 +99,8 @@
         }
       }
     }
+  },
+  "cli": {
+    "analytics": "ad4a8aca-00ea-4199-ad59-c5916c3335f4"
   }
 }
