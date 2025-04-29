@@ -200,9 +200,8 @@ This project is licensed under the MIT License - see the LICENSE file for detail
 
 - Angular team for the powerful framework
 - PrimeNG team for the comprehensive UI component library
-- PDF.js contributors
-- (Add other relevant libraries and contributors)
+- (Add other relevant libraries)
 
 ---
 
-Developed with ❤️ by [Vamshi Bnadela , Soumya Bhandarkar, Aman, Rohit]
+Developed with ❤️ by [Vamshi Bandela, Soumya Bhandarkar, Aman, Rohit]

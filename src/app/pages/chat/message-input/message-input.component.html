@@ -1,0 +1,94 @@
+<!-- Compact Input Container with All Features -->
+<div class="border-t border-gray-200 dark:border-gray-800 p-2">
+  <div class="max-w-3xl mx-auto">
+    <!-- Combined Input Area with Integrated Elements -->
+    <div
+      class="bg-gray-100 dark:bg-gray-800/70 rounded-lg border border-gray-200 dark:border-gray-700/50 shadow-sm"
+    >
+      <!-- Top Row: Model Selection + File Chips in same row -->
+      <div class="flex items-center justify-between px-2 pt-2 pb-1">
+        <!-- Model Selection (Left) -->
+        <button
+          class="flex items-center text-xs text-gray-600 dark:text-gray-300 bg-gray-200/70 dark:bg-gray-700/70 rounded px-2 py-1 hover:bg-gray-200 dark:hover:bg-gray-700"
+        >
+          <span>DocuMind 3:4b</span>
+          <i class="pi pi-chevron-down text-xs ml-1"></i>
+        </button>
+
+        <!-- File Chips (Right) -->
+        <div class="flex flex-wrap gap-1 overflow-x-auto max-w-[70%]">
+          <div
+            class="flex items-center bg-gray-50 dark:bg-gray-700/50 text-xs rounded px-1.5 py-0.5 border border-gray-200 dark:border-gray-600"
+          >
+            <i class="pi pi-file text-blue-500 mr-1"></i>
+            <span class="truncate max-w-[120px]">quarterly_report.pdf</span>
+            <button
+              class="ml-1 text-gray-400 hover:text-gray-600 dark:hover:text-gray-200"
+            >
+              <i class="pi pi-times text-xs"></i>
+            </button>
+          </div>
+          <!-- <div
+            class="flex items-center bg-gray-50 dark:bg-gray-700/50 text-xs rounded px-1.5 py-0.5 border border-gray-200 dark:border-gray-600"
+          >
+            <i class="pi pi-file-excel text-green-500 mr-1"></i>
+            <span class="truncate max-w-[120px]">financial_data.xlsx</span>
+            <button
+              class="ml-1 text-gray-400 hover:text-gray-600 dark:hover:text-gray-200"
+            >
+              <i class="pi pi-times text-xs"></i>
+            </button>
+          </div> -->
+        </div>
+      </div>
+
+      <!-- Input Area with Buttons -->
+      <div class="flex items-center px-2 pb-2">
+        <!-- File Upload Button -->
+        <label
+          for="fileUpload"
+          class="cursor-pointer p-1.5 rounded-full hover:bg-gray-200 dark:hover:bg-gray-700/70 transition-colors text-gray-500 dark:text-gray-400"
+        >
+          <i class="pi pi-paperclip text-sm"></i>
+        </label>
+        <input id="fileUpload" type="file" class="hidden" multiple />
+
+        <!-- Voice Input Button -->
+        <button
+          class="p-1.5 rounded-full hover:bg-gray-200 dark:hover:bg-gray-700/70 transition-colors text-gray-500 dark:text-gray-400"
+          title="Toggle voice input"
+        >
+          <i class="pi pi-microphone text-sm"></i>
+        </button>
+
+        <!-- Textarea - Taking most space -->
+        <div class="flex-1 relative mx-1">
+          <textarea
+            #messageInput
+            class="w-full resize-none border-0 bg-transparent focus:outline-none focus:ring-0 text-sm md:text-base p-3 pr-12 pl-10 min-h-[50px] placeholder-gray-500 dark:placeholder-gray-400"
+            placeholder="Ask something…"
+            [(ngModel)]="currentMessage"
+            (input)="autoGrowTextarea($event)"
+            (keydown.enter)="onEnterPress($event)"
+            rows="1"
+          ></textarea>
+        </div>
+
+        <!-- Send Button -->
+        <button
+          class="p-1.5 rounded-full bg-blue-600 hover:bg-blue-700 text-white disabled:bg-gray-300 dark:disabled:bg-gray-700/50 disabled:text-gray-400 dark:disabled:text-gray-500 transition-colors"
+          [disabled]="!currentMessage.trim() && !hasUploadedFiles"
+          (click)="sendMessage()"
+          title="Send message"
+        >
+          <i class="pi pi-send text-sm"></i>
+        </button>
+      </div>
+    </div>
+
+    <!-- Disclaimer text -->
+    <p class="text-xs text-gray-500 dark:text-gray-400 text-center mt-1">
+      DocuMind may produce inaccurate information.
+    </p>
+  </div>
+</div>

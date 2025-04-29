@@ -1,0 +1,28 @@
+<!-- Suggestions - only shown when no messages -->
+<div class="md:px-6">
+  <div class="max-w-4xl mx-auto">
+    <div class="text-center mb-4">
+      <h2 class="text-lg md:text-xl font-semibold mb-2">
+        How can I help you today?
+      </h2>
+    </div>
+
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-3 md:gap-4">
+      @for(prompt of suggestedPrompts; track prompt.id){
+      <div
+        class="bg-gray-100 dark:bg-gray-800 p-3 md:p-4 rounded-lg hover:bg-gray-200 dark:hover:bg-gray-700 cursor-pointer transition border border-transparent hover:border-blue-200 dark:hover:border-blue-800"
+      >
+        <div class="flex items-start">
+          <i class="pi {{ prompt.icon }} text-blue-500 mr-3 mt-1"></i>
+          <div>
+            <h3 class="font-medium mb-1">{{ prompt.title }}</h3>
+            <p class="text-sm text-gray-600 dark:text-gray-400">
+              {{ prompt.description }}
+            </p>
+          </div>
+        </div>
+      </div>
+      }
+    </div>
+  </div>
+</div>

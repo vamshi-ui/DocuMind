@@ -1,1 +1,74 @@
 /* You can add global styles to this file, and also import other style files */
+@import "primeicons/primeicons.css";
+/* styles.css */
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  /* Light mode colors */
+  --sidebar-bg: #f9fafb;  /* gray-50 */
+  --main-bg: #ffffff;
+  --card-bg: #ffffff;
+  --input-bg: #f3f4f6;    /* gray-100 */
+  --accent-color: #4f46e5; /* indigo-600 */
+  --border-color: #e5e7eb; /* gray-200 */
+  --text-color: #111827;   /* gray-900 */
+  --text-secondary: #4b5563; /* gray-600 */
+}
+
+.dark {
+  /* Dark mode colors - matching Anthropic UI */
+  --sidebar-bg: #000000;  /* pure black */
+  --main-bg: #0c0c0c;     /* almost black */
+  --card-bg: #1f2937;     /* gray-800 */
+  --input-bg: #27272a;    /* zinc-800 */
+  --accent-color: #6366f1; /* indigo-500 */
+  --border-color: #374151; /* gray-700 */
+  --text-color: #f9fafb;   /* gray-50 */
+  --text-secondary: #9ca3af; /* gray-400 */
+}
+
+/* PrimeNG component overrides */
+.p-component {
+  font-family: ui-sans-serif, system-ui, sans-serif;
+}
+
+/* Better transitions for dark mode */
+body {
+  transition: background-color 0.2s ease;
+}
+
+/* Default button styling */
+.p-button {
+  border-radius: 0.375rem !important;
+}
+
+/* Input styling */
+.p-inputtext {
+  border-radius: 0.375rem !important;
+}
+
+/* Sidebar overrides */
+.p-sidebar .p-sidebar-content {
+  padding: 0 !important;
+}
+
+/* Scrollbar styling for dark mode */
+.dark ::-webkit-scrollbar {
+  width: 10px;
+}
+
+.dark ::-webkit-scrollbar-track {
+  background: var(--card-bg);
+}
+
+.dark ::-webkit-scrollbar-thumb {
+  background: var(--border-color);
+  border-radius: 5px;
+}
+
+.dark ::-webkit-scrollbar-thumb:hover {
+  background: var(--text-secondary);
+}

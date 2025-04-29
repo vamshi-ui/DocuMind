@@ -1,0 +1,24 @@
+@for (message of rawMessages(); track message) {
+<div class="mb-6">
+  @if (message.sender === 'user') {
+  <div class="flex justify-end">
+    <div
+      class="bg-blue-100 dark:bg-blue-900 dark:bg-opacity-20 p-3 rounded-lg max-w-3xl"
+    >
+      <p>{{ message.content }}</p>
+    </div>
+  </div>
+  } @if (message.sender === 'assistant') {
+  <div class="flex justify-start">
+    <div class="bg-gray-100 dark:bg-gray-800 p-3 rounded-lg max-w-3xl">
+      @if (message.isTyping) {
+      <app-typing-effect [text]="message.content" [typingSpeed]="typingSpeed">
+      </app-typing-effect>
+      } @else {
+      <p>{{ message.content }}</p>
+      }
+    </div>
+  </div>
+  }
+</div>
+}

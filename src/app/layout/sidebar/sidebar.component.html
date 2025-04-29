@@ -1,0 +1,231 @@
+  <!-- Sidebar - collapsible on mobile -->
+  <div
+    class="sidebar-container transition-all duration-300 z-10"
+    [ngClass]="{
+      'w-64': !sidebarCollapsed,
+      'w-16': sidebarCollapsed,
+      'h-full': !isMobile(),
+      'absolute inset-y-0 left-0': isMobile(),
+      'transform translate-x-0': isMobile() && !mobileSidebarHidden(),
+      'transform -translate-x-full': isMobile() && mobileSidebarHidden()
+    }"
+  >
+    <div
+      class="h-full border-r border-gray-200 dark:border-gray-800 bg-gray-50 dark:bg-black flex flex-col"
+    >
+      <!-- Sidebar Header -->
+      <div
+        class="p-3 border-b border-gray-200 dark:border-gray-800 flex items-center justify-center"
+      >
+        <div *ngIf="!sidebarCollapsed" class="flex items-center w-full">
+          <div
+            class="w-8 h-8 bg-blue-600 dark:bg-blue-500 rounded-lg flex items-center justify-center mr-2"
+          >
+            <i class="pi pi-file-edit text-white"></i>
+          </div>
+          <span class="font-semibold text-base">DocuMind</span>
+          <button
+            pButton
+            icon="pi pi-arrow-left"
+            class="p-button-text p-button-rounded ml-auto"
+            (click)="
+              !isMobile() && mobileSidebarHidden()
+                ? toggleSidebar()
+                : toggleMobileSidebar()
+            "
+          ></button>
+        </div>
+        <div *ngIf="sidebarCollapsed" class="flex flex-col items-center">
+          <!-- <div class="w-8 h-8 bg-blue-600 dark:bg-blue-500 rounded-lg flex items-center justify-center">
+            <i class="pi pi-file-edit text-white"></i>
+          </div> -->
+          <button
+            pButton
+            icon="pi pi-arrow-right"
+            class="p-button-text p-button-rounded p-button-sm mt-1"
+            (click)="toggleSidebar()"
+          ></button>
+        </div>
+      </div>
+
+      <!-- Main Sidebar Navigation -->
+      <div class="flex flex-col py-4 px-2">
+        <!-- Section divider -->
+        <div class="mb-6 px-2">
+          <div *ngIf="!sidebarCollapsed" class="flex items-center mb-2">
+            <span class="text-xs font-medium text-gray-500 dark:text-gray-400"
+              >MAIN MENU</span
+            >
+          </div>
+
+          <!-- Navigation Items -->
+          <div class="space-y-1">
+            <!-- Documents -->
+            <div
+              class="flex items-center rounded-md cursor-pointer py-2"
+              [ngClass]="
+                sidebarCollapsed
+                  ? 'justify-center'
+                  : 'px-3 hover:bg-gray-100 dark:hover:bg-gray-900'
+              "
+            >
+              <div
+                class="w-8 h-8 rounded-lg flex items-center justify-center"
+                [ngClass]="{
+                  'bg-blue-100 dark:bg-blue-900': !sidebarCollapsed,
+                  'bg-blue-600 dark:bg-blue-500': sidebarCollapsed
+                }"
+              >
+                <i
+                  class="pi pi-folder"
+                  [ngClass]="
+                    sidebarCollapsed
+                      ? 'text-white'
+                      : 'text-blue-600 dark:text-blue-400'
+                  "
+                ></i>
+              </div>
+              <span *ngIf="!sidebarCollapsed" class="ml-3 text-sm"
+                >Documents</span
+              >
+            </div>
+
+            <!-- Workspace -->
+            <div
+              class="flex items-center rounded-md cursor-pointer py-2"
+              [ngClass]="
+                sidebarCollapsed
+                  ? 'justify-center'
+                  : 'px-3 hover:bg-gray-100 dark:hover:bg-gray-900'
+              "
+            >
+              <div
+                class="w-8 h-8 rounded-lg flex items-center justify-center"
+                [ngClass]="{
+                  'bg-gray-100 dark:bg-gray-800': !sidebarCollapsed,
+                  'bg-transparent': sidebarCollapsed
+                }"
+              >
+                <i
+                  class="pi pi-briefcase"
+                  [ngClass]="
+                    sidebarCollapsed
+                      ? 'text-gray-300 dark:text-gray-500'
+                      : 'text-gray-600 dark:text-gray-400'
+                  "
+                ></i>
+              </div>
+              <span *ngIf="!sidebarCollapsed" class="ml-3 text-sm"
+                >Workspace</span
+              >
+            </div>
+          </div>
+        </div>
+
+        <!-- Chat Section -->
+        <div class="mb-6 px-2">
+          <div *ngIf="!sidebarCollapsed" class="flex items-center mb-2">
+            <span class="text-xs font-medium text-gray-500 dark:text-gray-400"
+              >CONVERSATIONS</span
+            >
+          </div>
+
+          <!-- Chat Items -->
+          <div class="space-y-1">
+            <!-- New Chat -->
+            <div
+              class="flex items-center rounded-md cursor-pointer py-2"
+              [ngClass]="
+                sidebarCollapsed
+                  ? 'justify-center'
+                  : 'px-3 hover:bg-gray-100 dark:hover:bg-gray-900'
+              "
+            >
+              <div
+                class="w-8 h-8 rounded-lg flex items-center justify-center"
+                [ngClass]="{
+                  'bg-gray-100 dark:bg-gray-800': !sidebarCollapsed,
+                  'bg-transparent': sidebarCollapsed
+                }"
+              >
+                <i
+                  class="pi pi-plus"
+                  [ngClass]="
+                    sidebarCollapsed
+                      ? 'text-gray-300 dark:text-gray-500'
+                      : 'text-gray-600 dark:text-gray-400'
+                  "
+                ></i>
+              </div>
+              <span *ngIf="!sidebarCollapsed" class="ml-3 text-sm"
+                >New Chat</span
+              >
+            </div>
+
+            <!-- Recent Chat -->
+            <div
+              class="flex items-center rounded-md cursor-pointer py-2"
+              [ngClass]="
+                sidebarCollapsed
+                  ? 'justify-center'
+                  : 'px-3 hover:bg-gray-100 dark:hover:bg-gray-900'
+              "
+            >
+              <div
+                class="w-8 h-8 rounded-lg flex items-center justify-center"
+                [ngClass]="{
+                  'bg-blue-100 dark:bg-blue-900': !sidebarCollapsed,
+                  'bg-blue-600 dark:bg-blue-500': sidebarCollapsed
+                }"
+              >
+                <i
+                  class="pi pi-comments"
+                  [ngClass]="
+                    sidebarCollapsed
+                      ? 'text-white'
+                      : 'text-blue-600 dark:text-blue-400'
+                  "
+                ></i>
+              </div>
+              <span *ngIf="!sidebarCollapsed" class="ml-3 text-sm"
+                >Recent Chat</span
+              >
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- User Profile - Fixed at bottom -->
+      <div class="mt-auto border-t border-gray-200 dark:border-gray-800 p-3">
+        <div
+          [ngClass]="
+            sidebarCollapsed ? 'flex justify-center' : 'flex items-center'
+          "
+        >
+          <div
+            *ngIf="sidebarCollapsed"
+            class="w-8 h-8 bg-blue-600 dark:bg-blue-500 rounded-lg flex items-center justify-center"
+          >
+            <span class="text-sm font-medium text-white">{{
+              username.charAt(0)
+            }}</span>
+          </div>
+          <div *ngIf="!sidebarCollapsed" class="flex items-center w-full">
+            <div
+              class="w-8 h-8 bg-blue-600 dark:bg-blue-500 rounded-lg flex items-center justify-center mr-2"
+            >
+              <span class="text-sm font-medium text-white">{{
+                username.charAt(0)
+              }}</span>
+            </div>
+            <span class="text-sm">{{ username }}</span>
+            <button
+              pButton
+              icon="pi pi-cog"
+              class="p-button-text p-button-rounded p-button-sm ml-auto"
+            ></button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>

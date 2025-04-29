@@ -1,0 +1,21 @@
+<!-- Full height app layout -->
+<div class="h-screen flex flex-col">
+  <!-- Scrollable message area -->
+  <div class="flex-1 overflow-y-auto p-3 md:p-4 pb-4" #chatContainer>
+    <div class="max-w-4xl mx-auto">
+      @if(messages().length === 0){
+      <app-welcome-chat></app-welcome-chat>
+      <app-suggestions></app-suggestions>
+      } @if(messages().length > 0){
+
+      <app-chat-messages></app-chat-messages>
+      <div class="h-10"></div>
+      }
+    </div>
+  </div>
+
+  <!-- Wrapper div -->
+  <div class="sticky bottom-0 bg-white dark:bg-gray-900">
+    <app-message-input></app-message-input>
+  </div>
+</div>
