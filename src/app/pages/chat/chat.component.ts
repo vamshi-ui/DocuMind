@@ -37,6 +37,10 @@ export class ChatComponent {
   layoutService = inject(LayoutService);
   cdr = inject(ChangeDetectorRef);
   messages = computed(() => this.chatService.messages());
+  headerHeight = 48; // Approximate height of header
+  inputAreaHeight = 65; // Approximate height of input area
+  viewportHeight = 0;
+  messageAreaHeight = 0;
   constructor() {
     effect(() => {
       if (this.messages().length > 0) {
@@ -48,9 +52,20 @@ export class ChatComponent {
 
     effect(() => {
       this.chatService.scrollTrigger();
-      this.scrollToBottom(); 
+      this.scrollToBottom();
     });
-  
+  }
+  ngOnInit() {
+    this.updateViewportDimensions();
+  }
+
+  updateViewportDimensions() {
+    // Get the actual viewport height
+    this.viewportHeight = window.innerHeight;
+
+    // Calculate message area height
+    this.messageAreaHeight =
+      this.viewportHeight - this.headerHeight - this.inputAreaHeight;
   }
 
   scrollToBottom() {
