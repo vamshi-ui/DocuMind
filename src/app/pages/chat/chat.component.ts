@@ -45,6 +45,12 @@ export class ChatComponent {
         this.scrollToBottom();
       }
     });
+
+    effect(() => {
+      this.chatService.scrollTrigger();
+      this.scrollToBottom(); 
+    });
+  
   }
 
   scrollToBottom() {

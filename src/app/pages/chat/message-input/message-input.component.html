@@ -75,6 +75,15 @@
         </div>
 
         <!-- Send Button -->
+        @if(isTyping()){
+        <button
+          class="p-1.5 rounded-full bg-blue-600 text-white disabled:bg-gray-300 dark:disabled:bg-gray-700/50 disabled:text-gray-400 dark:disabled:text-gray-500 transition-colors cursor-default"
+          disabled
+          title="Assistant is typing..."
+        >
+        <i class="pi pi-spin pi-spinner animate-spin text-sm"></i>
+      </button>
+        } @else {
         <button
           class="p-1.5 rounded-full bg-blue-600 hover:bg-blue-700 text-white disabled:bg-gray-300 dark:disabled:bg-gray-700/50 disabled:text-gray-400 dark:disabled:text-gray-500 transition-colors"
           [disabled]="!currentMessage.trim() && !hasUploadedFiles"
@@ -83,6 +92,7 @@
         >
           <i class="pi pi-send text-sm"></i>
         </button>
+        }
       </div>
     </div>
 
