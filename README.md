@@ -2,6 +2,10 @@
 
 A powerful PDF RAG (Retrieval-Augmented Generation) application that allows users to upload PDF documents and engage in AI-powered conversations about their content.
 
+## Live App Url
+
+Check out at [DocuMind](https://vamshi-ui.github.io/DocuMind/)
+
 ## Overview
 
 DocuMind leverages advanced AI techniques to enable natural language interactions with PDF documents. Upload your PDFs and immediately start asking questions, extracting insights, and exploring document content through an intuitive chat interface.
@@ -195,5 +199,11 @@ This project is licensed under the MIT License - see the LICENSE file for detail
 - (Add other relevant libraries)
 
 ---
+### 💖 Contributors of DocuMind App
 
-Developed with ❤️ by [Vamshi Bandela, Soumya Bhandarkar, Aman, Rohit]
+Developed with ❤️ by 
+
+[<img src="https://github.com/vamshi-ui.png" width="70px;"/>](https://github.com/vamshi-ui/)
+[<img src="https://github.com/soumya-b019.png" width="70px;"/>](https://github.com/soumya-b019/)
+[<img src="https://github.com/amanprasadoo7.png" width="70px;"/>](https://github.com/amanprasadoo7/)
+[<img src="https://github.com/rohitangira.png" width="70px;"/>](https://github.com/rohitangira/)
