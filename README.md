@@ -20,10 +20,10 @@ DocuMind leverages advanced AI techniques to enable natural language interaction
 
 - **Frontend**: Angular 18
 - **State Management**: Angular Signals and RxJS
-- **UI Components**: PrimeNG
+- **UI Components**: PrimeNG, Tailwind Css
 - **PDF Processing**: PDF.js
-- **Vector Database**: (Your choice - e.g., Pinecone, Weaviate, etc.)
-- **LLM Integration**: (Your choice - e.g., OpenAI, Anthropic, etc.)
+- **Vector Database**: (Qdrant)
+- **LLM Integration**: (OpenAI)
 
 ## Installation
 
@@ -48,21 +48,13 @@ DocuMind leverages advanced AI techniques to enable natural language interaction
    npm install
    ```
 
-3. Configure environment variables:
+3. Start the development server:
 
    ```bash
-   cp .env.example .env
+   npx ng serve
    ```
 
-   Edit `.env` with your API keys and configuration.
-
-4. Start the development server:
-
-   ```bash
-   ng serve
-   ```
-
-5. Navigate to `http://localhost:4200/` in your browser.
+4. Navigate to `http://localhost:4200/` in your browser.
 
 ## Development server
 
